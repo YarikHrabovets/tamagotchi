@@ -1,5 +1,5 @@
 import random
-import sys, os
+import os
 import time
 import pygame
 import foodClass
@@ -178,7 +178,7 @@ def game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT or event.type == pygame.K_ESCAPE:
                 endGame = True
-                sys.exit()
+                pygame.quit()
             if event.type == daysEvent:
                 isSleep = True
             if not isSleep:
@@ -301,7 +301,7 @@ def menu():
         for event in pygame.event.get():
             if event.type == pygame.QUIT or event.type == pygame.K_ESCAPE:
                 endMenu = True
-                sys.exit()
+                pygame.quit()
             if start_btn.rect.collidepoint((pos_x, pos_y)) and event.type == pygame.MOUSEBUTTONDOWN:
                 button_sound.play()
                 endMenu = True
@@ -314,8 +314,9 @@ def menu():
                 panelClass.clicked_help = False
             if exit_btn.rect.collidepoint((pos_x, pos_y)) and event.type == pygame.MOUSEBUTTONDOWN:
                 button_sound.play()
+                pygame.mouse.set_visible(True)
                 endMenu = True
-                sys.exit()
+                pygame.quit()
 
         start_btn.hover(pos_x, pos_y)
         rule_btn.hover(pos_x, pos_y)
