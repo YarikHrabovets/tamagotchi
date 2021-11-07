@@ -1,5 +1,6 @@
 import pygame, os
 from mainConst import screen, pixel_font
+from abs_path import abs_path
 
 pygame.init()
 clicked_help = False
@@ -16,7 +17,7 @@ class Panel:
         self.text_3 = text_3
         self.image = pygame.transform.scale(pygame.image.load(path), (self.width, self.height))
         self.image_rect = self.image.get_rect(center=(self.x, self.y))
-        self.exit = pygame.transform.scale(pygame.image.load('images/sprites/iconCross_beige.png'), (40, 40))
+        self.exit = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/iconCross_beige.png')), (40, 40))
         self.exit_rect = self.exit.get_rect(center=(75, 65))
 
         self.first_text = pixel_font.render(self.text_1, True, (255, 255, 255))
