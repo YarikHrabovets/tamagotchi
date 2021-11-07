@@ -8,6 +8,7 @@ import playClass
 import statisticsClass
 from buttonClass import Button
 from mainConst import action, tamagotchiJump, pixel_font
+from abs_path import abs_path
 
 pygame.init()
 pygame.time.set_timer(pygame.USEREVENT, 2000)
@@ -31,21 +32,21 @@ cantHelp = False
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Tamagotchi')
-pygame.display.set_icon(pygame.image.load('images/sprites/logika.ico'))
+pygame.display.set_icon(pygame.image.load(abs_path('images/sprites/logika.ico')))
 clock = pygame.time.Clock()
 start_time = None
 game_time = None
 
-cursor = pygame.image.load('images/sprites/cursorHand_blue.png')
+cursor = pygame.image.load(abs_path('images/sprites/cursorHand_blue.png'))
 pygame.mouse.set_visible(False)
-background_menu = [pygame.transform.scale(pygame.image.load('images/background/gifMenu-0.png'), (screen_width, screen_height)),
-                   pygame.transform.scale(pygame.image.load('images/background/gifMenu-1.png'), (screen_width, screen_height))]
-background = pygame.transform.scale(pygame.image.load('images/background/background.jpg'), (screen_width, screen_height))
-gameover_img = pygame.transform.scale(pygame.image.load('images/background/gameover_1.png'), (screen_width, screen_height))
-sleep_image = pygame.transform.scale(pygame.image.load('images/sprites//sleep.png'), (50, 50))
-day_image = pygame.transform.scale(pygame.image.load('images/sprites/day.png'), (50, 50))
-night_image = pygame.transform.scale(pygame.image.load('images/sprites/night.png'), (50, 50))
-gameover_text = pixel_font.render('If you want play one more time, you need restart game', True, (75, 255, 255))
+background_menu = [pygame.transform.scale(pygame.image.load(abs_path('images/background/gifMenu-0.png')), (screen_width, screen_height)),
+                   pygame.transform.scale(pygame.image.load(abs_path('images/background/gifMenu-1.png')), (screen_width, screen_height))]
+background = pygame.transform.scale(pygame.image.load(abs_path('images/background/background.jpg')), (screen_width, screen_height))
+gameover_img = pygame.transform.scale(pygame.image.load(abs_path('images/background/gameover_1.png')), (screen_width, screen_height))
+sleep_image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites//sleep.png')), (50, 50))
+day_image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/day.png')), (50, 50))
+night_image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/night.png')), (50, 50))
+gameover_text = pixel_font.render('If you want play one more time, you have to restart game', True, (75, 255, 255))
 
 
 def tamagotchiAnimation(x, y):
@@ -78,7 +79,7 @@ def clearAfter():
     global cantClear
     if action['toilet'] + 16 <= 100:
         action['toilet'] += 16
-        toilet_sound = pygame.mixer.Sound('sounds/toilet.mp3')
+        toilet_sound = pygame.mixer.Sound(abs_path('sounds/toilet.ogg'))
         toilet_sound.play()
     else:
         cantClear = True
@@ -90,7 +91,7 @@ def medicine():
         if action['health'] + 10 <= 100:
             action['health'] += 10
             action['logiki'] -= 3
-            medicine_sound = pygame.mixer.Sound('sounds/medicine.mp3')
+            medicine_sound = pygame.mixer.Sound(abs_path('sounds/medicine.ogg'))
             medicine_sound.play()
         else:
             cantHelp = True
@@ -104,47 +105,47 @@ def gameOver():
 
 
 def spawn_coin(group):
-    return playClass.Coin(random.randint(40, 760), random.randint(3, 5), 'images/sprites/coin.png', group)
+    return playClass.Coin(random.randint(40, 760), random.randint(3, 5), abs_path('images/sprites/coin.png'), group)
 
 coins = pygame.sprite.Group()
 
-help_menu = panelClass.Panel(400, 250, 750, 450, 'images/sprites/panel_brown.png', ' You have to keep the indicators normal.',
+help_menu = panelClass.Panel(400, 250, 750, 450, abs_path('images/sprites/panel_brown.png'), ' You have to keep the indicators normal.',
                              'If at least one of them is equal to zero, you will lose.', 'Good Luck!')
 
-logika_label = Button(70, 60, 100, 100, 'images/sprites/logika.png')
-start_btn = Button(140, 150, 200, 50, 'images/sprites/buttonLong_brown.png', 'Start')
-rule_btn = Button(140, 250, 200, 50, 'images/sprites/buttonLong_brown.png', 'Help')
-exit_btn = Button(140, 350, 200, 50, 'images/sprites/buttonLong_brown.png', 'Exit')
+logika_label = Button(70, 60, 100, 100, abs_path('images/sprites/logika.png'))
+start_btn = Button(140, 150, 200, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Start')
+rule_btn = Button(140, 250, 200, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Help')
+exit_btn = Button(140, 350, 200, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Exit')
 
 
-info_satiety = Button(20, 30, 25, 50, 'images/sprites/lightning.png')
-info_toilet = Button(150, 30, 50, 50, 'images/sprites/toilet.png')
-info_happy = Button(270, 30, 50, 50, 'images/sprites/smile.png')
-info_health = Button(30, 90, 60, 60, 'images/sprites/health.png')
+info_satiety = Button(20, 30, 25, 50, abs_path('images/sprites/lightning.png'))
+info_toilet = Button(150, 30, 50, 50, abs_path('images/sprites/toilet.png'))
+info_happy = Button(270, 30, 50, 50, abs_path('images/sprites/smile.png'))
+info_health = Button(30, 90, 60, 60, abs_path('images/sprites/health.png'))
 
-btn_statistic = Button(715, 40, 150, 50, 'images/sprites/buttonLong_brown.png', 'Statistic')
+btn_statistic = Button(715, 40, 150, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Statistic')
 
-btn_satiety = Button(85, 467, 150, 50, 'images/sprites/buttonLong_brown.png', 'Feed')
-btn_toilet = Button(285, 467, 150, 50, 'images/sprites/buttonLong_brown.png', 'Clear')
-btn_play = Button(515, 467, 150, 50, 'images/sprites/buttonLong_brown.png', 'Play')
-btn_health = Button(715, 467, 150, 50, 'images/sprites/buttonLong_brown.png', 'Medicine')
+btn_satiety = Button(85, 467, 150, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Feed')
+btn_toilet = Button(285, 467, 150, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Clear')
+btn_play = Button(515, 467, 150, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Play')
+btn_health = Button(715, 467, 150, 50, abs_path('images/sprites/buttonLong_brown.png'), 'Medicine')
 
-food = foodClass.FoodMenu(400, 250, 750, 450, 'images/sprites/panel_brown.png',
-                          'images/sprites/buttonSquare_beige_pressed.png',
-                          'images/sprites/food_1.png', 'images/sprites/food_2.png', 'images/sprites/food_3.png')
+food = foodClass.FoodMenu(400, 250, 750, 450, abs_path('images/sprites/panel_brown.png'),
+                          abs_path('images/sprites/buttonSquare_beige_pressed.png'),
+                          abs_path('images/sprites/food_1.png'), abs_path('images/sprites/food_2.png'), abs_path('images/sprites/food_3.png'))
 
 play = playClass.Play()
 basket = playClass.Basket()
 
 
-button_sound = pygame.mixer.Sound('sounds/button.mp3')
+button_sound = pygame.mixer.Sound(abs_path('sounds/button.ogg'))
 button_sound.set_volume(0.05)
 
 
 def game():
     global endGame, isSleep, daysCount, night_timer, text_timer, cantClear, cantHelp, game_time, start_time
     start_time = time.time()
-    pygame.mixer.music.load('sounds/backgroundMusic.mp3')
+    pygame.mixer.music.load(abs_path('sounds/backgroundMusic.ogg'))
     pygame.mixer.music.set_volume(0.3)
     pygame.mixer.music.play(loops=-1)
 
@@ -166,7 +167,7 @@ def game():
         tamagotchiAnimation(330, 340)
 
         btn_statistic.blit_btn()
-        statistics = statisticsClass.Statistics(400, 250, 750, 450, 'images/sprites/panel_brown.png',
+        statistics = statisticsClass.Statistics(400, 250, 750, 450, abs_path('images/sprites/panel_brown.png'),
                                                 str(action['logiki']) + ' Lg', 'Name: Tamagotchi', f'Days: {daysCount}')
         btn_satiety.blit_btn()
         btn_toilet.blit_btn()
@@ -196,7 +197,7 @@ def game():
                     playClass.clicked_play = True
                     button_sound.play()
                     pygame.mixer.music.unload()
-                    pygame.mixer.music.load('sounds/game.mp3')
+                    pygame.mixer.music.load(abs_path('sounds/game.ogg'))
                     pygame.mixer.music.set_volume(0.7)
                     pygame.mixer.music.play()
                 if event.type == pygame.USEREVENT:
@@ -217,7 +218,7 @@ def game():
                 playClass.seconds = 1
                 button_sound.play()
                 pygame.mixer.music.unload()
-                pygame.mixer.music.load('sounds/backgroundMusic.mp3')
+                pygame.mixer.music.load(abs_path('sounds/backgroundMusic.ogg'))
                 pygame.mixer.music.play(loops=-1)
 
         btn_statistic.hover(pos_x, pos_y)
@@ -281,7 +282,7 @@ def game():
 
 def menu():
     global endMenu, animCount, start_time
-    pygame.mixer.music.load('sounds/menu.mp3')
+    pygame.mixer.music.load(abs_path('sounds/menu.ogg'))
     pygame.mixer.music.play(loops=-1)
     while not endMenu:
         if animCount + 1 >= len(background_menu) * 9:
