@@ -1,6 +1,7 @@
 import pygame, os
 import time
 from mainConst import action, tamagotchiJump, pixel_font, screen
+from abs_path import abs_path
 
 pygame.init()
 
@@ -17,11 +18,11 @@ class Play:
         self.y = 400
         self.width = 150
         self.height = 150
-        self.background_anim = [pygame.transform.scale(pygame.image.load('images/background/background-0.png'), (800, 500)),
-                                pygame.transform.scale(pygame.image.load('images/background/background-1.png'), (800, 500)),
-                                pygame.transform.scale(pygame.image.load('images/background/background-2.png'), (800, 500)),
-                                pygame.transform.scale(pygame.image.load('images/background/background-3.png'), (800, 500))]
-        self.exit = pygame.transform.scale(pygame.image.load('images/sprites/iconCross_beige.png'), (40, 40))
+        self.background_anim = [pygame.transform.scale(pygame.image.load(abs_path('images/background/background-0.png')), (800, 500)),
+                                pygame.transform.scale(pygame.image.load(abs_path('images/background/background-1.png')), (800, 500)),
+                                pygame.transform.scale(pygame.image.load(abs_path('images/background/background-2.png')), (800, 500)),
+                                pygame.transform.scale(pygame.image.load(abs_path('images/background/background-3.png')), (800, 500))]
+        self.exit = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/iconCross_beige.png')), (40, 40))
         self.exit_rect = self.exit.get_rect(center=(40, 40))
 
     def blit_play(self):
@@ -61,7 +62,7 @@ class Play:
             seconds = 1
             scoreCount = 0
             pygame.mixer.music.unload()
-            pygame.mixer.music.load('sounds/backgroundMusic.mp3')
+            pygame.mixer.music.load(abs_path('sounds/backgroundMusic.ogg'))
             pygame.mixer.music.play(loops=-1)
 
     def control(self, keys):
@@ -74,7 +75,7 @@ class Play:
 class Basket(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.basket = pygame.transform.scale(pygame.image.load('images/sprites/basket.png'), (150 // 2, 150 // 3))
+        self.basket = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/basket.png')), (150 // 2, 150 // 3))
         self.rect = self.basket.get_rect(center=(400, 440))
 
     def blit_basket(self):
