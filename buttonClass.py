@@ -1,5 +1,6 @@
 import pygame, os
 from mainConst import screen, pixel_font
+from abs_path import abs_path
 
 pygame.init()
 
@@ -25,6 +26,6 @@ class Button:
 
     def hover(self, x, y):
         if self.rect.collidepoint((x, y)):
-            self.image = pygame.transform.scale(pygame.image.load('images/sprites/buttonLong_blue.png'), (self.width, self.height))
+            self.image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/buttonLong_blue.png')), (self.width, self.height))
         else:
             self.image = self.normal_image
