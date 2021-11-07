@@ -18,10 +18,10 @@ class Play:
         self.y = 400
         self.width = 150
         self.height = 150
-        self.background_anim = [pygame.transform.scale(pygame.image.load(abs_path('images/background/background-0.png')), (800, 500)),
-                                pygame.transform.scale(pygame.image.load(abs_path('images/background/background-1.png')), (800, 500)),
-                                pygame.transform.scale(pygame.image.load(abs_path('images/background/background-2.png')), (800, 500)),
-                                pygame.transform.scale(pygame.image.load(abs_path('images/background/background-3.png')), (800, 500))]
+        self.background_anim = [pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/background-0.png')), (800, 500)),
+                                pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/background-1.png')), (800, 500)),
+                                pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/background-2.png')), (800, 500)),
+                                pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/background-3.png')), (800, 500))]
         self.exit = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/iconCross_beige.png')), (40, 40))
         self.exit_rect = self.exit.get_rect(center=(40, 40))
 
