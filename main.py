@@ -39,10 +39,10 @@ game_time = None
 
 cursor = pygame.image.load(abs_path('images/sprites/cursorHand_blue.png'))
 pygame.mouse.set_visible(False)
-background_menu = [pygame.transform.scale(pygame.image.load(abs_path('images/background/gifMenu-0.png')), (screen_width, screen_height)),
-                   pygame.transform.scale(pygame.image.load(abs_path('images/background/gifMenu-1.png')), (screen_width, screen_height))]
-background = pygame.transform.scale(pygame.image.load(abs_path('images/background/background.jpg')), (screen_width, screen_height))
-gameover_img = pygame.transform.scale(pygame.image.load(abs_path('images/background/gameover_1.png')), (screen_width, screen_height))
+background_menu = [pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/gifMenu-0.png')), (screen_width, screen_height)),
+                   pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/gifMenu-1.png')), (screen_width, screen_height))]
+background = pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/background.jpg')), (screen_width, screen_height))
+gameover_img = pygame.transform.scale(pygame.image.load(abs_path('images/backgrounds/gameover_1.png')), (screen_width, screen_height))
 sleep_image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites//sleep.png')), (50, 50))
 day_image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/day.png')), (50, 50))
 night_image = pygame.transform.scale(pygame.image.load(abs_path('images/sprites/night.png')), (50, 50))
