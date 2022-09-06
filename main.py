@@ -330,5 +330,6 @@ def menu():
 
         clock.tick(FPS)
         pygame.display.update()
-
-menu()
+        
+if __name__ == '__main__':       
+    menu()
