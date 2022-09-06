@@ -11,9 +11,15 @@ This is my version of the Tamagotchi.
 > The Tamagotchi is a handheld digital pet that was created in Japan by Akihiro Yokoi of WiZ and Aki Maita of Bandai. It was released by Bandai on November 23, 1996 in Japan and in the USA on May 1, 1997, quickly becoming one of the biggest toy fads of the late 1990s and the early 2000s.
 
 ## Some screenshots
-<img src="https://raw.githubusercontent.com/YarikHrabovets/tamagotchi/main/samples/preview1.png" width="50%" />
-<img src="https://raw.githubusercontent.com/YarikHrabovets/tamagotchi/main/samples/preview2.png" width="50%" />
-<img src="https://raw.githubusercontent.com/YarikHrabovets/tamagotchi/main/samples/preview3.png" width="50%" />
+<p align="center">
+ <img src="https://raw.githubusercontent.com/YarikHrabovets/tamagotchi/main/samples/preview1.png" width="80%" />
+</p>
+<p align="center">
+ <img src="https://raw.githubusercontent.com/YarikHrabovets/tamagotchi/main/samples/preview2.png" width="80%" />
+</p>
+<p align="center">
+ <img src="https://raw.githubusercontent.com/YarikHrabovets/tamagotchi/main/samples/preview3.png" width="80%" />
+</p>
 
 ## General Dependenices
   * Python([pygame](https://github.com/pygame/pygame))
